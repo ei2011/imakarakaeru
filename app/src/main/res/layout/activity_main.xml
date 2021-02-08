@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+『Androidアプリ開発の教科書』
+第14章 p312
+暗黙的インテントサンプル
+
+画面定義ファイル。
+
+@author Shinzo SAITO
+
+ファイル名=activity_intent_start.xml
+-->
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+<!--LinearLayout　p59
+	orientationは vertical（縦） と　horizontal（横）の二個がある
+	-->
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<EditText
+			android:id="@+id/etSearchWord"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"/>
+<!--	EditText　は入力可能テキストボックス
+		weight = "1" で画面の余白のすべてを画面部分にわりあてる
+		layout_width="0dp"　は横方向の余白-->
+		<Button
+			android:id="@+id/btMapSearch"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:onClick="onMapSearchButtonClick"
+			android:text="@string/bt_map_search"/>
+	</LinearLayout>
+<!--	地図検索ボタン-->
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/tv_current_title"
+			android:layout_marginEnd="5dp"
+			android:layout_marginRight="5dp" />
+<!--TexgtView文字列の表示
+	margin は Viewの間隔-->
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="5dp"
+			android:text="@string/tv_latitude_title"
+			android:layout_marginEnd="5dp" />
+
+		<TextView
+			android:id="@+id/tvLatitude"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="5dp"
+			android:layout_weight="0.5"
+			android:maxLines="1"
+			android:layout_marginEnd="5dp" />
+<!--		GPSで取得した緯度を表示
+			layout_weight="0.5"　は 画面に割り当てる割合　余白をなくす
+			android:maxLines="1"　は　1行に収まらなかった部分は非表示に
+			android:minLines　はTextViewの高さを少なくともこの数行にします
+-->
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="5dp"
+			android:text="@string/tv_longitude_title"
+			android:layout_marginEnd="5dp" />
+<!--		緯度を表示-->
+
+		<TextView
+			android:id="@+id/tvLongitude"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="0.5"
+			android:maxLines="1"/>
+<!--		GPSで取得した経度をを表示-->
+
+		<Button
+			android:id="@+id/btMapShowCurrent"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:onClick="onMapShowCurrentButtonClick"
+			android:text="@string/bt_map_current"/>
+	</LinearLayout>
+</LinearLayout>
